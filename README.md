@@ -18,7 +18,7 @@ npm install --save filetree.js
 
 ## CLI Example
 
-Recursively lists files in myFolder and subdirectories upto two levels down, excluding any file or folder with the name 'node_modules' and 'bower_components'. Includes normally hidden files and folders and does not indent file/folder paths based on their depth level.
+Recursively lists files in `myFolder` and subdirectories upto two levels down, excluding any file or folder with the name `node_modules` and `bower_components`. Includes normally hidden files and folders and does not indent file/folder paths based on their depth level.
 
 ```bash
 ./filetree --path ./myFolder \
@@ -119,6 +119,7 @@ npm test
 
 ## Change Log
 
-2015-10-18 - v0.0.2 - Allow exclude names to have hanging/trailing slash
-2015-10-18 - Published v0.0.1
-
+- 2015-10-18 - v0.0.2
+  - Allow exclude names to have hanging/trailing slash
+- 2015-10-18 - v0.0.1
+  - First release
