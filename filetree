@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var filetree = require('./filetree.js'),
+    cwd = process.cwd(),
+    argv = require('yargs').
+        default('path', cwd, cwd).
+        describe('path', 'Print contents of directory at this path (relative or absolute)').
+        string('path').
+        alias('path', 'p').
+
+        default('max-depth', -1, 'Unlimited').
+        describe('max-depth', 'Maximum directory depth').
+        alias('max-depth', 'm').
+        example('filetree -m 0', 'Only print root directory').
+        example('filetree -m 2', 'Print root and the two lower levels of directories').
+
+        array('exclude').
+        describe('exclude', 'Exclude file and folder names').
+        alias('exclude', 'x').
+        default('exclude', []).
+        example('filetree -x build tmp .git', 'Exclude multiple folder names').
+
+        version(require('./package').version).
+        alias('version', 'V').
+        alias('help', 'h').
+        usage("$0 -p path/to/target -m 2 -x unwantedDir").
+        help('help').
+        epilogue('Report bugs at https://github.com/aiham/filetree.js/issues').
+        argv;
+
+filetree(argv.path, argv.maxDepth, argv.exclude);
+
