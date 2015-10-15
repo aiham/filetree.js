@@ -55,7 +55,7 @@ All arguments are optional
 - options.maxDepth
   - Integer
   - Default = Unlimited
-  - Maximum directory depth
+  - Maximum directory recursion depth
 - options.exclude
   - Array:String
   - Default = []
@@ -74,18 +74,17 @@ All arguments are optional
 All arguments are optional
 
 ```bash
-./filetree --help
-```
-
-```
-filetree [-p <target path>] [-m <max recursion depth>] [-x <excluded names>] [-a
-] [-i]
+filetree [-p <target path>]
+         [-m <max recursion depth>]
+         [-x <excluded names>]
+         [-a]
+         [-i]
 
 Options:
   --path, -p       Print contents of directory at this path (relative or
                    absolute)
                     [string] [default: /Users/aihamhammami/Projects/filetree.js]
-  --max-depth, -m  Maximum directory depth                  [default: Unlimited]
+  --max-depth, -m  Maximum directory recursion depth        [default: Unlimited]
   --exclude, -x    Exclude file and folder names           [array] [default: []]
   --all, -a        Include files and folders beginning with a period
                                                       [boolean] [default: false]
@@ -107,7 +106,7 @@ Report bugs at https://github.com/aiham/filetree.js/issues
 
 ## Tests
 
-Run the tests
+Run the tests. Uses: mocha, chai, sinon
 
 ```bash
 npm test

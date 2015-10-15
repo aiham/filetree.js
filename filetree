@@ -3,7 +3,7 @@
 var filetree = require('./filetree.js'),
     cwd = process.cwd(),
     argv = require('yargs').
-        usage("$0 [-p <target path>] [-m <max recursion depth>] [-x <excluded names>] [-a] [-i]").
+        usage("$0 \t[-p <target path>]\n\t[-m <max recursion depth>]\n\t[-x <excluded names>]\n\t[-a]\n\t[-i]").
 
         default('path', cwd, cwd).
         describe('path', 'Print contents of directory at this path (relative or absolute)').
@@ -11,7 +11,7 @@ var filetree = require('./filetree.js'),
         alias('path', 'p').
 
         default('max-depth', -1, 'Unlimited').
-        describe('max-depth', 'Maximum directory depth').
+        describe('max-depth', 'Maximum directory recursion depth').
         alias('max-depth', 'm').
         example('filetree -m 0', 'Only print root directory').
         example('filetree -m 2', 'Print root and the two lower levels of directories').
