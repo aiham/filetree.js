@@ -4,13 +4,13 @@ Recursively list files in directory hierarchy as a readable tree upto specified 
 
 ## Install
 
-### Globally
+### Global
 
 ```bash
 npm install -g filetree.js
 ```
 
-### As part of your project
+### Local
 
 ```bash
 npm install --save filetree.js
@@ -103,4 +103,12 @@ Examples:
   filetree --no-indent         Prevent the default indentation
 
 Report bugs at https://github.com/aiham/filetree.js/issues
+```
+
+## Tests
+
+Run the tests
+
+```bash
+npm test
 ```

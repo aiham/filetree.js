@@ -14,7 +14,7 @@ describe('filetree', function () {
         stub = sinon.stub(console, 'log');
 
         expect(function () {
-            filetree(filePath);
+            filetree({path: filePath});
         }).to.throw(Error);
 
         stub.restore();
@@ -30,7 +30,7 @@ describe('filetree', function () {
         stub = sinon.stub(console, 'log');
 
         expect(function () {
-            filetree(filePath);
+            filetree({path: filePath});
         }).to.throw(Error);
 
         stub.restore();
@@ -45,7 +45,7 @@ describe('filetree', function () {
         stub = sinon.stub(console, 'log');
 
         expect(function () {
-            filetree(filePath);
+            filetree({path: filePath});
         }).to.not.throw(Error);
 
         stub.restore();
