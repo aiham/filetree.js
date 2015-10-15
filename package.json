@@ -1,6 +1,6 @@
 {
   "name": "filetree.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Recursively list files in directory hierarchy as a readable tree upto specified depth while excluding unwanted folder names",
   "main": "filetree.js",
   "bin": "filetree",
