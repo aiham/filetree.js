@@ -1,8 +1,25 @@
 var fs = require('fs');
 
-module.exports = filetree;
+module.exports = function (options) {
+    if ('depth' in options) {
+        delete options.depth;
+    }
+    return filetree(options);
+};
 
-function filetree(path, maxDepth, exclude, depth) {
+function filetree(options) {
+    var path, maxDepth, exclude, all, indent, depth;
+
+    if (!options) {
+        options = {};
+    }
+
+    path = options.path;
+    maxDepth = options.maxDepth;
+    exclude = options.exclude;
+    all = options.all;
+    indent = options.indent;
+    depth = options.depth;
 
     var i, j, l, out, file, isDir, stats, files;
 
@@ -35,10 +52,16 @@ function filetree(path, maxDepth, exclude, depth) {
             continue;
         }
 
+        if (!all && files[i][0] === '.') {
+            continue;
+        }
+
         file = path + '/' + files[i];
         out = '';
-        for (j = 0; j < depth; j++) {
-            out += '    ';
+        if (indent) {
+            for (j = 0; j < depth; j++) {
+                out += '    ';
+            }
         }
         out += files[i];
 
@@ -63,10 +86,16 @@ function filetree(path, maxDepth, exclude, depth) {
 
         console.log(out);
         if (isDir && (maxDepth < 0 || depth < maxDepth)) {
-            filetree(file, maxDepth, exclude, depth);
+            filetree({
+                path: file,
+                maxDepth: maxDepth,
+                exclude: exclude,
+                all: all,
+                indent: indent,
+                depth: depth
+            });
         }
 
     }
 
 }
-

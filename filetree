@@ -3,6 +3,8 @@
 var filetree = require('./filetree.js'),
     cwd = process.cwd(),
     argv = require('yargs').
+        usage("$0 [-p <target path>] [-m <max recursion depth>] [-x <excluded names>] [-a] [-i]").
+
         default('path', cwd, cwd).
         describe('path', 'Print contents of directory at this path (relative or absolute)').
         string('path').
@@ -18,15 +20,31 @@ var filetree = require('./filetree.js'),
         describe('exclude', 'Exclude file and folder names').
         alias('exclude', 'x').
         default('exclude', []).
-        example('filetree -x build tmp .git', 'Exclude multiple folder names').
+        example('filetree -x build tmp test', 'Exclude multiple folder names').
+
+        boolean('all').
+        describe('all', 'Include files and folders beginning with a period').
+        alias('all', 'a').
+        default('all', false).
+        example('filetree -p myGitProject -a', 'Includes .git which is normally ignored').
+
+        boolean('indent').
+        describe('indent', 'Indent paths based on their depth level').
+        alias('indent', 'i').
+        default('indent', true).
+        example('filetree --no-indent', 'Prevent the default indentation').
 
         version(require('./package').version).
         alias('version', 'V').
         alias('help', 'h').
-        usage("$0 -p path/to/target -m 2 -x unwantedDir").
         help('help').
         epilogue('Report bugs at https://github.com/aiham/filetree.js/issues').
         argv;
 
-filetree(argv.path, argv.maxDepth, argv.exclude);
-
+filetree({
+    path: argv.path,
+    maxDepth: argv.maxDepth,
+    exclude: argv.exclude,
+    all: argv.all,
+    indent: argv.indent
+});

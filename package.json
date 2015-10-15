@@ -1,7 +1,7 @@
 {
   "name": "filetree.js",
   "version": "1.0.0",
-  "description": "Recursively list files in directory hierarchy as a readable tree upto specified depth while excluding unwated folder names",
+  "description": "Recursively list files in directory hierarchy as a readable tree upto specified depth while excluding unwanted folder names",
   "main": "filetree.js",
   "bin": "filetree",
   "scripts": {
