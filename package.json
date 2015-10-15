@@ -1,9 +1,11 @@
 {
   "name": "filetree.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Recursively list files in directory hierarchy as a readable tree upto specified depth while excluding unwanted folder names",
   "main": "filetree.js",
-  "bin": "filetree",
+  "bin": {
+    "filetree": "./filetree"
+  },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./filetree.spec.js"
   },

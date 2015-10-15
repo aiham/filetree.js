@@ -119,7 +119,10 @@ npm test
 
 ## Change Log
 
+- 2015-10-18 - v0.0.3
+  - Fix global command to be `filetree` rather than `filetree.js`
 - 2015-10-18 - v0.0.2
   - Allow exclude names to have hanging/trailing slash
 - 2015-10-18 - v0.0.1
   - First release
+
