@@ -37,6 +37,9 @@ function filetree(options) {
     if (!Array.isArray(exclude)) {
         exclude = [];
     }
+    exclude = exclude.map(function (name) {
+        return name.replace(/(^[\/\\]+|[\/\\]+$)/g, '');
+    });
 
     if (typeof depth === 'undefined') {
         depth = 0;
