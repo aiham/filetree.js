@@ -111,3 +111,12 @@ Run the tests. Uses: mocha, chai, sinon
 ```bash
 npm test
 ```
+
+## To Do
+
+- Return paths in JS and print in CLI
+- Async with promises rather than synchronous
+
+## Change Log
+
+2015-10-18 - Published v0.0.1
