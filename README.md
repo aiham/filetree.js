@@ -1,3 +1,5 @@
+**Note:** Not maintained
+
 # filetree.js
 
 Recursively list files in directory hierarchy as a readable tree upto specified depth while excluding unwanted folder names
